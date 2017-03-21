@@ -1,0 +1,17 @@
+TODO:
+- Provare la rete neurale con i nuovi dati scalati con il logaritmo
+- Provare gli algoritmi di Matlab sui nostri dati, e confrontare i risultati con quelli vecchi ottenuti da Luca (sia classificazione a 2 classi che a 3 classi, per vedere se Matlab si comporta meglio della rete neurale)
+- Provare ad usare dei classificatori di SKLearn, ad esempio LDA, QDA, SVM, ecc. (mi ricordo qualcosa che si chiamava "Quadratic" 
+
+- Aggiungere features
+- Equilibrare le classe dei dati (la seconda ha molti più esempi delle altre due)
+
+- Rivedere la mail di Luca, fare le cose che ci ha detto e mandargli i risultati ottenuti
+
+- Andare avanti con il sito sulle reti neurali, imparare nuove cose ed applicarle alla rete attuale
+- Nel frattempo si potrebbero cercare parametri ottimali facendo girare le reti su Digital Ocean
+
+
+ORGANIZZAZIONE
+- Spartirsi il lavoro
+- Usare GitHub con repo private
