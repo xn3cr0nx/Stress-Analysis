@@ -11,7 +11,7 @@ def vectorized_result(j):
     e[int(j)-1] = 1.0
     return e
 
-data = np.genfromtxt ('dataRandom.csv', delimiter=',')
+data = np.genfromtxt ('../Dataset/shuffleData.csv', delimiter=',')
 
 # TODO: shuffle di 'data', cosi ogni volta training e test sono diversi
 
@@ -38,19 +38,19 @@ test_data = zip(training_inputs, labels)[65000:]
 epochs = 37
 mini_batch_size = 70
 learning_rate = 1.2
-filename = "hidden_layer(2).csv"
+filename = "provaNoLog.csv"
 with open(filename, 'w') as log:
-    log.write("NUMBER OF NODS,ACCURACY\n")
+    log.write("ACCURACY\n")
 
 
-for i in xrange(17):
+for i in xrange(12):
     
-    print "NUMBER OF NODS:", 150+i*50
+    #print "NUMBER OF NODS:", 150+i*50
     # TODO: distruggere l'oggetto "net" in ogni ciclo
-    net = network.Network([2, 350, 150+i*50, 3])
+    net = network.Network([2, 350, 3])
     net.SGD(training_data, epochs, mini_batch_size, learning_rate)
     results, n_test, accuracy = net.test_network(test_data)
     print "\n{0} / {1} \nAccuracy: {2}%".format(results, n_test, accuracy)
     with open(filename, 'a') as log:
-        log.write("%i,%f\n" % (150+i*50,accuracy))
+        log.write("%f\n" % (accuracy))
 
