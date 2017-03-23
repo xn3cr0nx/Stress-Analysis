@@ -1,7 +1,7 @@
 TODO:
 
 Preprocessing Dati
-- Provare la rete neurale con i nuovi dati scalati con il logaritmo (LORIS, fallo sul dataset già esistente)
+- Provare la rete neurale con i nuovi dati scalati con il logaritmo (LORIS)
 - Aggiungere dati (RR, ST) ed estrarre features (PATRICK)
 - Equilibrare le classi dei dati (la seconda ha molti più esempi delle altre due) (LORIS)
 - Scambiare ZOH e eliminazione outlier (lui li fa in quest'ordine, noi in quello inverso) # solo dei test temporanei
