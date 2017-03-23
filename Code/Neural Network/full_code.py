@@ -23,6 +23,9 @@ labels = data[:,3]
 # Il vettore di input deve essere 2x1.
 # Il vettore di output deve essere 3x1 per il training, 1x1 per il test
 
+#training_inputs contiene per ogni entry le due features messe in colonna
+#training_results e un vettore con 1.0 nell' elemento j corrispondente al valore j del valore passato
+
 training_inputs = [np.reshape(x, (2,1)) for x in zip(HR, GSR)]
 training_results = [vectorized_result(y) for y in labels]
 training_data = zip(training_inputs, training_results)[:65000]
