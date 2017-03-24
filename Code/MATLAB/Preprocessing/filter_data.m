@@ -27,9 +27,9 @@ function [HR_filt, GSR_filt, RR_filt, ST_filt] = filter_data(HR_orig, GSR_orig, 
     
     
 %     % Filtro RR
-    outlierRR = find(RR_orig < 0.2);
+%     outlierRR = find(RR_orig < 0.2);
     numRRbase = nRRbase;
-    numRRbase(outlierRR) = []; % elimina outlier
+%     numRRbase(outlierRR) = []; % elimina outlier
     RR_clean = interp1(numRRbase, RR_orig(numRRbase), nRRbase, interp_method)';
     
     RR_zoh = zoh(nRRbase,RR_clean,nRRbasesp);
