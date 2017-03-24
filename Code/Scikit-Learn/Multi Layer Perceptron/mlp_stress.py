@@ -28,7 +28,7 @@ print 'Trasformazione applicata ai dati correttamente'
 
 ###############################################
 # Next we create an instance of the model
-mlp = MLPClassifier(hidden_layer_sizes=(100, 200, 400, 600, 400, 200, 100))
+mlp = MLPClassifier(hidden_layer_sizes=(10, 10, 10))
 print 'MLP creato correttamente'
 
 ###############################################
