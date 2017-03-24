@@ -4,12 +4,10 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import classification_report,confusion_matrix
 import numpy as np
 
-dataset = np.genfromtxt('dataset_random.csv',delimiter=',')
+dataset = np.genfromtxt('newFeatures.csv',delimiter=',')
 
-X = dataset[:, 0:2]
-y = dataset[:, 3]
-
-print X[0:10]
+X = dataset[:, 0:4]
+y = dataset[:, 5]
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33)
 print 'X_train, X_test, y_train, y_test correttamente splittati'
@@ -28,7 +26,7 @@ print 'Trasformazione applicata ai dati correttamente'
 
 ###############################################
 # Next we create an instance of the model
-mlp = MLPClassifier(hidden_layer_sizes=(10, 10, 10))
+mlp = MLPClassifier(hidden_layer_sizes=(100, 100, 100))
 print 'MLP creato correttamente'
 
 ###############################################
