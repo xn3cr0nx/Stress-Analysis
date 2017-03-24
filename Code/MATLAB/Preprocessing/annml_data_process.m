@@ -137,4 +137,3 @@ datasetrandom = dataset(randperm(length(dataset)), :);
 % Da scommentare solo in caso di bisogno
 %csvwrite(strcat(dataset_path,'dataset_stress.csv'), dataset);
 %csvwrite(strcat(dataset_path,'shuffleData.csv'), datasetrandom);
-csvwrite(strcat('/home/patrick/Scrivania/', 'newFeatures.csv'), datasetrandom);
