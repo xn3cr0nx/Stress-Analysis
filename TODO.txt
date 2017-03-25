@@ -1,7 +1,6 @@
 TODO:
 
 Preprocessing Dati
-- Provare la rete neurale con i nuovi dati scalati con il logaritmo (LORIS)
 - Equilibrare le classi dei dati (la seconda ha molti più esempi delle altre due) (LORIS)
 - Scambiare ZOH e eliminazione outlier (lui li fa in quest'ordine, noi in quello inverso) # solo dei test temporanei
 
@@ -14,6 +13,7 @@ Test delle reti e classificatori
 Reti neurali
 - Andare avanti con il sito sulle reti neurali, imparare nuove cose ed applicarle alla rete attuale
 - Nel frattempo si potrebbero cercare parametri ottimali facendo girare le reti su Digital Ocean
+- (25/03) Commentare insieme i risultati della rete con il log del GSR
 
 
 Digital Ocean

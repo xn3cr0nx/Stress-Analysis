@@ -43,7 +43,7 @@ predictions = mlp.predict(X_test)
 print(confusion_matrix(y_test,predictions))
 
 
-print(classification_report(y_test,predictions))
+print(classification_report(y_test,predictions, digits=4))
 
 ####################################################
 #print len(mlp.coefs_)
