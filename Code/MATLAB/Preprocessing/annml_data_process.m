@@ -127,7 +127,7 @@ dataset(:,2) = log(dataset(:,2));
 dataset(:,1) = scaleData(dataset(:,1));
 dataset(:,2) = scaleData(dataset(:,2));
 dataset(:,3) = scaleData(dataset(:,3));
-% dataset(:,4) = scaleData(dataset(:,4));
+dataset(:,4) = scaleData(dataset(:,4));
 
 % Shuffle dei dati
 datasetrandom = dataset(randperm(length(dataset)), :);

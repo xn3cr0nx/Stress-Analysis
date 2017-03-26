@@ -1,6 +1,6 @@
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
+from sklearn import svm
 from sklearn.metrics import classification_report,confusion_matrix
 import numpy as np
 
@@ -28,8 +28,8 @@ print 'Trasformazione applicata ai dati correttamente'
 
 ###############################################
 # Next we create an instance of the model
-clf = QuadraticDiscriminantAnalysis()
-print 'QDA creato correttamente'
+clf = svm.SVC()
+print 'SVC creato correttamente'
 
 ###############################################
 print 'Fit dei dati in corso'
