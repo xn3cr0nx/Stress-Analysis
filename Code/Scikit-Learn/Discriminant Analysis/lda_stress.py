@@ -4,7 +4,10 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.metrics import classification_report,confusion_matrix
 import numpy as np
 
-dataset = np.genfromtxt('../newFeatures.csv',delimiter=',')
+dataset_folder = '../../Dataset/'
+dataset_path = dataset_folder + 'dataset-not-scaled.csv'
+
+dataset = np.genfromtxt(dataset_path,delimiter=',')
 
 X = dataset[:, 0:4]
 y = dataset[:, 5]
@@ -45,7 +48,7 @@ predictions = clf.predict(X_test)
 print(confusion_matrix(y_test,predictions))
 
 
-print(classification_report(y_test,predictions))
+print(classification_report(y_test,predictions, digits=4))
 
 ####################################################
 #print len(mlp.coefs_)
