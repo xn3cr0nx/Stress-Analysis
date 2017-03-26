@@ -129,9 +129,12 @@ dataset(:,2) = scaleData(dataset(:,2));
 dataset(:,3) = scaleData(dataset(:,3));
 dataset(:,4) = scaleData(dataset(:,4));
 
+% Balancing delle classi
+dataset = undersample(dataset);
+
 % Shuffle dei dati
 datasetrandom = dataset(randperm(length(dataset)), :);
 
 % Da scommentare solo in caso di bisogno
-%csvwrite(strcat(dataset_path,'dataset_stress.csv'), dataset);
+csvwrite(strcat(dataset_path,'dataset-scaled.csv'), datasetrandom);
 %csvwrite(strcat(dataset_path,'dataset-not-scaled.csv'), datasetrandom);

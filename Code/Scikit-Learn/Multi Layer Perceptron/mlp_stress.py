@@ -4,7 +4,10 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import classification_report,confusion_matrix
 import numpy as np
 
-dataset = np.genfromtxt('../newFeatures.csv',delimiter=',')
+dataset_folder = '../../Dataset/'
+dataset_path = dataset_folder + 'dataset-scaled.csv'
+
+dataset = np.genfromtxt(dataset_path,delimiter=',')
 
 X = dataset[:, 0:4]
 y = dataset[:, 5]
