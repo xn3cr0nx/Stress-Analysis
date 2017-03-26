@@ -27,15 +27,15 @@ function [HR_filt, GSR_filt, RR_filt, ST_filt] = filter_data(HR_orig, GSR_orig, 
     
     
 %     % Filtro RR
-    outlierRR = find(RR_orig < 0.2);
-    numRRbase = nRRbase;
-    numRRbase(outlierRR) = []; % elimina outlier
-    RR_clean = interp1(numRRbase, RR_orig(numRRbase), nRRbase, interp_method)';
+%     outlierRR = find(RR_orig < 0.2);
+%     numRRbase = nRRbase;
+%     numRRbase(outlierRR) = []; % elimina outlier
+%     RR_clean = interp1(numRRbase, RR_orig(numRRbase), nRRbase, interp_method)';
 %     plot(RR_orig);
 %     hold on;
 %     plot(RR_clean);
     
-    RR_zoh = zoh(nRRbase,RR_clean,nRRbasesp);
+    RR_zoh = zoh(nRRbase,RR_orig,nRRbasesp);
     RR_filt = smooth(RR_zoh);
     
     

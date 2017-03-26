@@ -119,21 +119,19 @@ clear HR_filt_hanoi2 GSR_filt_hanoi2 RR_filt_hanoi2 ST_filt_hanoi2
 clear dataset_relax dataset_hanoi1 dataset_hanoi2 temp
 clear cluster_relax cluster_hanoi1 cluster_hanoi2
 
-% Logaritmo GSR, da scommentare nel caso serva
+% Logaritmo GSR
 dataset(:,2) = log(dataset(:,2));
 
-% Normalizzazione di HR e GSR tra 0 e 1
-% TODO: sarebbe comodo avere delle variabili da usare al posto dei numeri
-% quando si vogliono selezionare delle colonne di 'dataset'.
-% Esempio: "dataset(:,HR)" per selezione l'HR invece che "dataset(:,1)"
+% Normalizzazione delle feature tra 0 e 1
+% 1 = HR, 2 = GSR, 3 = RR, 4 = ST
 dataset(:,1) = scaleData(dataset(:,1));
 dataset(:,2) = scaleData(dataset(:,2));
 dataset(:,3) = scaleData(dataset(:,3));
-dataset(:,4) = scaleData(dataset(:,4));
+% dataset(:,4) = scaleData(dataset(:,4));
 
 % Shuffle dei dati
 datasetrandom = dataset(randperm(length(dataset)), :);
 
 % Da scommentare solo in caso di bisogno
 %csvwrite(strcat(dataset_path,'dataset_stress.csv'), dataset);
-%csvwrite(strcat(dataset_path,'shuffleData.csv'), datasetrandom);
+%csvwrite(strcat(dataset_path,'dataset-not-scaled.csv'), datasetrandom);
