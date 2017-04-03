@@ -1,13 +1,11 @@
 TODO:
 
 Preprocessing Dati
-- Equilibrare le classi dei dati (la seconda ha molti più esempi delle altre due) (LORIS)
 - Scambiare ZOH e eliminazione outlier (lui li fa in quest'ordine, noi in quello inverso) # solo dei test temporanei
 
 
 Test delle reti e classificatori
 - Provare gli algoritmi di Matlab sui nostri dati, e confrontare i risultati con quelli vecchi ottenuti da Luca (sia classificazione a 2 classi che a 3 classi, per vedere se Matlab si comporta meglio della rete neurale)
-- Provare ad usare dei classificatori di SKLearn, ad esempio LDA, QDA, SVM, ecc.
 
 
 Reti neurali
