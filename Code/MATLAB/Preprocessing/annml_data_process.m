@@ -108,7 +108,7 @@ for j = patient
     end
     
     temp = [dataset_relax; dataset_hanoi1; dataset_hanoi2];
-    dataset = [dataset; temp];
+    dataset = [dataset; temp; 0 1 0 0 0 0]; % ho messo 1 al secondo posto perchè dopo uso il log, e diventa 0
 end
 
 % Un po' di pulizia
@@ -124,17 +124,17 @@ dataset(:,2) = log(dataset(:,2));
 
 % Normalizzazione delle feature tra 0 e 1
 % 1 = HR, 2 = GSR, 3 = RR, 4 = ST
-dataset(:,1) = scaleData(dataset(:,1));
-dataset(:,2) = scaleData(dataset(:,2));
-dataset(:,3) = scaleData(dataset(:,3));
-dataset(:,4) = scaleData(dataset(:,4));
+% dataset(:,1) = scaleData(dataset(:,1));
+% dataset(:,2) = scaleData(dataset(:,2));
+% dataset(:,3) = scaleData(dataset(:,3));
+% dataset(:,4) = scaleData(dataset(:,4));
 
 % Balancing delle classi
-dataset = undersample(dataset);
+% dataset = undersample(dataset);
 
 % Shuffle dei dati
 datasetrandom = dataset(randperm(length(dataset)), :);
 
 % Da scommentare solo in caso di bisogno
-csvwrite(strcat(dataset_path,'dataset-scaled.csv'), datasetrandom);
+csvwrite(strcat(dataset_path,'raw-dataset-with-zeros.csv'), dataset);
 %csvwrite(strcat(dataset_path,'dataset-not-scaled.csv'), datasetrandom);

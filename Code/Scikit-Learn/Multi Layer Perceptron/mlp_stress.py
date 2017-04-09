@@ -5,7 +5,7 @@ from sklearn.metrics import classification_report,confusion_matrix
 import numpy as np
 
 dataset_folder = '../../Dataset/'
-dataset_path = dataset_folder + 'dataset-scaled.csv'
+dataset_path = dataset_folder + 'raw-dataset.csv'
 
 dataset = np.genfromtxt(dataset_path,delimiter=',')
 
