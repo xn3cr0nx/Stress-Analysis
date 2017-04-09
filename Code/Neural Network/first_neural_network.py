@@ -105,6 +105,7 @@ class Network(object):
         network outputs the correct result. Note that the neural
         network's output is assumed to be the index of whichever
         neuron in the final layer has the highest activation."""
+		# TODO: pensare ai valori di output della rete (aggiungere la classe "Non classificato")
         test_results = [(np.argmax(self.feedforward(x)), y)
                         for (x, y) in test_data]
         return sum(int(x+1 == y) for (x, y) in test_results)
