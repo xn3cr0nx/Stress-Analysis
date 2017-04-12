@@ -15,7 +15,7 @@ In generale, questa pagina ha tante informazioni utili per il progetto: https://
 Dominio del tempo:
 - SDNN = Standard Deviation of NN intervals.
 - SDSD = Standard Deviation of Successive Differences, calcolato su intervalli NN consecutivi
-- RMSSD = Root Mean Square of SUccessive Differences, calcolato su intervalli NN consecutivi
+- RMSSD = Root Mean Square of Successive Differences, calcolato su intervalli NN consecutivi
 - NN50 = Numero di coppie di NN successivi che differiscono più di 50 ms
 - dNN50 = Numero di coppie di NN successivi tali per cui la differenza tra il secondo e il primo è maggiore di 50 ms (non è una differenza con valore assoluto)
 - aNN50 = Come il dNN50, ma la differenza tra il secondo e il primo è minore di 50 ms
