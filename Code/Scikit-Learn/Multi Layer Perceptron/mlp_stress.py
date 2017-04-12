@@ -32,6 +32,8 @@ print 'Trasformazione applicata ai dati correttamente'
 mlp = MLPClassifier(hidden_layer_sizes=(100, 100, 100))
 print 'MLP creato correttamente'
 
+print mlp.get_params()
+
 ###############################################
 print 'Fit dei dati in corso'
 # Fit the training data to our model
