@@ -1,0 +1,45 @@
+* BT = Body Temperature (= ST, Skin Temperature)
+
+
+* HR IBI = Heart Rate Inter-beat Interval (basterebbe dire IBI invece che HR IBI)
+E' l'intervallo di tempo, misurato in millisecondi, tra due battiti cardiaci consecutivi.
+E' correlato con l'HRV (Heart Rate Variability), che è la variazione dell'intervallo di tempo tra due battiti cardiaci consecutivi.
+In generale, questa pagina ha tante informazioni utili per il progetto: https://en.wikipedia.org/wiki/Heart_rate_variability
+
+
+* Analisi dell'HRV nel dominio del tempo e della frequenza
+
+(Nota: HRV e RR variability sono sinonimi. Quindi nel codice quando si usa RR si sta valutando l'HRV.)
+(NN intervals = beat-to-beat intervals, cioè penso intervalli di tempo tra due battiti consecutivi)
+
+Dominio del tempo:
+- SDNN = Standard Deviation of NN intervals.
+- SDSD = Standard Deviation of Successive Differences, calcolato su intervalli NN consecutivi
+- RMSSD = Root Mean Square of SUccessive Differences, calcolato su intervalli NN consecutivi
+- NN50 = Numero di coppie di NN successivi che differiscono più di 50 ms
+- dNN50 = Numero di coppie di NN successivi tali per cui la differenza tra il secondo e il primo è maggiore di 50 ms (non è una differenza con valore assoluto)
+- aNN50 = Come il dNN50, ma la differenza tra il secondo e il primo è minore di 50 ms
+- pNN50 = NN50 diviso il numero totale di NN
+
+Mancano: sigmax, Nsigmax, gammax, Ngammax
+
+Dominio della frequenza:
+Vengono assegnate delle bande di frequenza e poi si conta il numero di intervalli NN che rientrano in tali bande.
+HF = High Frequency, da 0.15 a 0.4 Hz
+LF = Low Frequency, da 0.04 a 0.15 Hz
+VLF = Very Low Frequency, da 0.0033 a 0.04 Hz (questa non la usiamo)
+
+Poi ci sono features in cui si guardano vari rapporti, ad esempio LF/HF.
+
+
+* Altre feature dell'HR
+
+- Poincarè Plot = sfruttano metodi non lineari, in qualche modo si avvalgono di proprietà geometriche. (Loris: al momento non li metterei, oppure se li mettiamo sarebbe meglio capire cosa fanno)
+- MRR = Mean RR intervals
+
+
+* Features SC (Skin Conductivity)
+Usano le stesse funzioni usate dalle features dell'HR, basta guardare quelle per farsi un'idea.
+
+
+
