@@ -72,27 +72,30 @@ for j = patient
     dataset_hanoi1 = [];
     dataset_hanoi2 = [];
     
-    finestra_temporale = 100; % GSR campionato a 5 Hz, quindi 5 dati = 1 sec
+    finestra_temporale = 10; % GSR campionato a 5 Hz, quindi 5 dati = 1 sec
     
     % Relax
-    for i = 1:length(data_filt.relax(j).HR)-finestra_temporale+1
+    k = 1;
+    for i = 1:finestra_temporale:length(data_filt.relax(j).HR)-finestra_temporale+1
         HR_median_relax = mean(data_filt.relax(j).HR(i:i+finestra_temporale-1));
         GSR_median_relax = mean(data_filt.relax(j).GSR(i:i+finestra_temporale-1));
         RR_median_relax = mean(data_filt.relax(j).RR(i:i+finestra_temporale-1));
         ST_median_relax = mean(data_filt.relax(j).ST(i:i+finestra_temporale-1));
-        % Estrazione features, da testare
+        % Estrazione features
         data_window.GSR = data_filt.relax(j).GSR(i:i+finestra_temporale-1)';
         data_window.RR = data_filt.relax(j).RR(i:i+finestra_temporale-1)';
         data_window.ST = data_filt.relax(j).ST(i:i+finestra_temporale-1)';
-        features = extract_features(data_window, 1);
+        features = extract_features(data_window, 1, finestra_temporale);
         
         stress_relax = data.relax(j).stress;
         cluster_relax = cluster(stress_relax);
-        dataset_relax(i, :) = [HR_median_relax, GSR_median_relax, RR_median_relax, ST_median_relax, features, stress_relax, cluster_relax];
+        dataset_relax(k, :) = [HR_median_relax, GSR_median_relax, RR_median_relax, ST_median_relax, features, stress_relax, cluster_relax];
+        k = k+1;
     end
     
     % Hanoi1
-    for i = 1:length(data_filt.hanoi1(j).HR)-finestra_temporale+1
+    k = 1;
+    for i = 1:finestra_temporale:length(data_filt.hanoi1(j).HR)-finestra_temporale+1
         HR_median_hanoi1 = mean(data_filt.hanoi1(j).HR(i:i+finestra_temporale-1));
         GSR_median_hanoi1 = mean(data_filt.hanoi1(j).GSR(i:i+finestra_temporale-1));
         RR_median_hanoi1 = mean(data_filt.hanoi1(j).RR(i:i+finestra_temporale-1));
@@ -101,15 +104,17 @@ for j = patient
         data_window.GSR = data_filt.hanoi1(j).GSR(i:i+finestra_temporale-1)';
         data_window.RR = data_filt.hanoi1(j).RR(i:i+finestra_temporale-1)';
         data_window.ST = data_filt.hanoi1(j).ST(i:i+finestra_temporale-1)';
-        features = extract_features(data_window, 1);
+        features = extract_features(data_window, 1, finestra_temporale);
         
         stress_hanoi1 = data.hanoi1(j).stress;
         cluster_hanoi1 = cluster(stress_hanoi1);
-        dataset_hanoi1(i, :) = [HR_median_hanoi1, GSR_median_hanoi1, RR_median_hanoi1, ST_median_hanoi1, features, stress_hanoi1, cluster_hanoi1];
+        dataset_hanoi1(k, :) = [HR_median_hanoi1, GSR_median_hanoi1, RR_median_hanoi1, ST_median_hanoi1, features, stress_hanoi1, cluster_hanoi1];
+        k = k+1;
     end
     
     % Hanoi2
-    for i = 1:length(data_filt.hanoi2(j).HR)-finestra_temporale+1
+    k = 1;
+    for i = 1:finestra_temporale:length(data_filt.hanoi2(j).HR)-finestra_temporale+1
         HR_median_hanoi2 = mean(data_filt.hanoi2(j).HR(i:i+finestra_temporale-1));
         GSR_median_hanoi2 = mean(data_filt.hanoi2(j).GSR(i:i+finestra_temporale-1));
         RR_median_hanoi2 = mean(data_filt.hanoi2(j).RR(i:i+finestra_temporale-1));
@@ -118,11 +123,12 @@ for j = patient
         data_window.GSR = data_filt.hanoi2(j).GSR(i:i+finestra_temporale-1)';
         data_window.RR = data_filt.hanoi2(j).RR(i:i+finestra_temporale-1)';
         data_window.ST = data_filt.hanoi2(j).ST(i:i+finestra_temporale-1)';
-        features = extract_features(data_window, 1);
+        features = extract_features(data_window, 1, finestra_temporale);
         
         stress_hanoi2 = data.hanoi2(j).stress;
         cluster_hanoi2 = cluster(stress_hanoi2);
-        dataset_hanoi2(i, :) = [HR_median_hanoi2, GSR_median_hanoi2, RR_median_hanoi2, ST_median_hanoi2, features, stress_hanoi2, cluster_hanoi2]; 
+        dataset_hanoi2(k, :) = [HR_median_hanoi2, GSR_median_hanoi2, RR_median_hanoi2, ST_median_hanoi2, features, stress_hanoi2, cluster_hanoi2]; 
+        k = k+1;
     end
     
     temp = [dataset_relax; dataset_hanoi1; dataset_hanoi2];
@@ -158,5 +164,5 @@ dataset(:,2) = log(dataset(:,2));
 datasetrandom = dataset(randperm(length(dataset)), :);
 
 % Da scommentare solo in caso di bisogno
-csvwrite(strcat(dataset_path,'raw-dataset-with-features-and-zeros.csv'), dataset);
+csvwrite(strcat(dataset_path,'raw-dataset-with-features-and-zeros-3.csv'), dataset);
 %csvwrite(strcat(dataset_path,'dataset-with-features.csv'), datasetrandom);

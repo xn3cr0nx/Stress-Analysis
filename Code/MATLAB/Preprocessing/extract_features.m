@@ -1,12 +1,5 @@
-function [features]= extract_features(data,len)
+function [features]= extract_features(data, len, finestra_temporale)
     % len = numero di righe di 'data', nel nostro caso è 1
-
-    % Guarda se nell'ultima riga dell'RR ci sono 9 zeri.
-    % Se è vero, si scarta l'ultima riga (len = len -1)
-    check= find(data.RR(len,:)==0);
-    if length(check)==9 
-        len=len-1;
-    end
 
 
     % Questo for cicla tutte le righe della matrice di input 'data'.
@@ -14,24 +7,7 @@ function [features]= extract_features(data,len)
     % Ogni riga è fatta da 10 valori, corrispondenti alla finestra temporale.
     for i=1:len
 
-        % cut: variabile che contiene il numero di colonne da usare.
-        % Vale sempre [1:10], tranne nell'ultima iterazione, in cui si accorcia
-        % in base agli zeri che si trovano nell'ultima riga dell'RR.
-        
-%         if i~=len
-%             cut=1:10;
-% 
-%         else
-%             aRR=find(data.RR(i,cut)==0);
-% 
-%             if isempty(aRR)
-%                 cut=1:10;
-% 
-%             else
-%                 cut=1:aRR(1)-1;
-%             end
-%         end
-        cut = 1:100;
+        cut = 1:finestra_temporale;
 
 
         RR(i,cut)=data.RR(i,cut);
