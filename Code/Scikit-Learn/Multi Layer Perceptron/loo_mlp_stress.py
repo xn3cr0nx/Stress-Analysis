@@ -38,7 +38,6 @@ scaler = StandardScaler()
 
 for i in range(15):
 	X_train = X_split[i+1]
-	print X_train
 	y_train = y_split[i+1]
 	for j in range(16):
 		if j != i and j != i+1:
