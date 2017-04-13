@@ -16,13 +16,13 @@ y = dataset[:, 32]
 X_split = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],]
 y_split = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],]
 
-zeroindex = [4927, 12906, 15510, 20170, 23064, 24571, 31558, 36136, 42541, 47454, 54397, 56842, 60199, 65633, 71554, 77065]
+zeroindex = [i for i, value in enumerate(dataset[:, 0]) if value == 0]
 
 #Split data chunk LOO
 first = 0
 for i in range(16):
-	X_split[i] = X[first:zeroindex[i]-1]
-	y_split[i] = y[first:zeroindex[i]-1]
+	X_split[i] = X[first:zeroindex[i]]
+	y_split[i] = y[first:zeroindex[i]]
 	first = zeroindex[i]+1
 print "Data Chunked"
 
@@ -37,7 +37,7 @@ for i in range(15):
 	y_train = y_split[i+1]
 	for j in range(16):
 		if j != i and j != i+1:
-			X_train = np.concatenate((X_train, X_split[j])) 
+			X_train = np.concatenate((X_train, X_split[j]))
 			y_train = np.concatenate((y_train, y_split[j]))
 	X_test = X_split[i]
 	y_test = y_split[i]
