@@ -4,11 +4,15 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import classification_report,confusion_matrix
 from sklearn.model_selection import LeaveOneOut
 import numpy as np
+import pandas as pd
 
 dataset_folder = '../../Dataset/'
-dataset_path = dataset_folder + 'raw-dataset-with-features-and-zeros.csv'
+dataset_path = dataset_folder + 'raw-dataset-with-features-and-zeros-3.csv'
 
-dataset = np.genfromtxt(dataset_path,delimiter=',')
+# dataset = np.genfromtxt(dataset_path,delimiter=',')
+dataset = pd.read_csv(dataset_path)
+dataset = dataset.fillna(method='ffill')
+dataset = dataset.as_matrix()
 
 X = dataset[:, 0:31]
 y = dataset[:, 32]
@@ -34,6 +38,7 @@ scaler = StandardScaler()
 
 for i in range(15):
 	X_train = X_split[i+1]
+	print X_train
 	y_train = y_split[i+1]
 	for j in range(16):
 		if j != i and j != i+1:
