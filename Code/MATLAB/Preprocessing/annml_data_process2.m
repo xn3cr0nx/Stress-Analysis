@@ -126,7 +126,11 @@ for j = patient
     end
     
     temp = [dataset_relax; dataset_hanoi1; dataset_hanoi2];
-    dataset = [dataset; temp]; % ho messo 1 al secondo posto perchè dopo uso il log, e diventa 0
+    dataset = [dataset; temp];
+    % Se vogliamo gli zeri scommentare queste 3 righe sotto
+    zeri = zeros(1, length(temp(1,:)));
+    zeri(1,2) = 1; % metto 1 al secondo posto perchè dopo uso il log, e diventa 0
+    dataset = [dataset; zeri];
 end
 
 % Un po' di pulizia
@@ -154,5 +158,5 @@ dataset(:,2) = log(dataset(:,2));
 datasetrandom = dataset(randperm(length(dataset)), :);
 
 % Da scommentare solo in caso di bisogno
-%csvwrite(strcat(dataset_path,'raw-dataset-with-zeros.csv'), dataset);
+csvwrite(strcat(dataset_path,'raw-dataset-with-features-and-zeros.csv'), dataset);
 %csvwrite(strcat(dataset_path,'dataset-with-features.csv'), datasetrandom);
