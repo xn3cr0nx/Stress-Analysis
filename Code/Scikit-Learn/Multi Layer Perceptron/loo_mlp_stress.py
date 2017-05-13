@@ -36,9 +36,9 @@ print "MLP created"
 
 scaler = StandardScaler()
 
-for i in range(15):
-	X_train = X_split[i+1]
-	y_train = y_split[i+1]
+for i in range(16):
+	X_train = X_split[(i+1)%16]
+	y_train = y_split[(i+1)%16]
 	for j in range(16):
 		if j != i and j != i+1:
 			X_train = np.concatenate((X_train, X_split[j]))
