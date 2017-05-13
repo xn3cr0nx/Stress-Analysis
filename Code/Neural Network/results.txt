@@ -10,4 +10,14 @@ Accuracy: 92.9%
 Accuracy: 93.3%
 
 
+Data Scaled
+
+17169 / 19019 
+Accuracy: 90.3%
+
+16394 / 19019 
+Accuracy: 86.2%
+
+17336 / 19019 
+Accuracy: 91.2%
 
