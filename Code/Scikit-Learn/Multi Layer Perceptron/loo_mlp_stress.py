@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 
 dataset_folder = '../../Dataset/'
-dataset_path = dataset_folder + 'raw-dataset-with-features-and-zeros-3.csv'
+dataset_path = dataset_folder + 'raw-dataset-with-features-and-zeros-reduced.csv'
 
 # dataset = np.genfromtxt(dataset_path,delimiter=',')
 dataset = pd.read_csv(dataset_path)
