@@ -11,7 +11,7 @@ def vectorized_result(j):
     e[int(j)-1] = 1.0
     return e
 
-data = np.genfromtxt ('../Dataset/dataset-not-scaled.csv', delimiter=',')
+data = np.genfromtxt ('../Dataset/dataset-scaled.csv', delimiter=',')
 
 # TODO: shuffle di 'data', cosi ogni volta training e test sono diversi
 
@@ -30,9 +30,11 @@ labels = data[:,5]
 
 training_inputs = [np.reshape(x, (4,1)) for x in zip(HR, GSR, RR, ST)]
 training_results = [vectorized_result(y) for y in labels]
-training_data = zip(training_inputs, training_results)[:65000]
-test_data = zip(training_inputs, labels)[65000:]
+training_data = zip(training_inputs, training_results)[:44377]
+test_data = zip(training_inputs, labels)[44377:]
 
+# numero di dati: 63396, 44377
+# vecchio valore nel codice: 65000
 
 # migliori learning_rate: 1.2, 0.9
 # migliori mini batch size: 70, 20
