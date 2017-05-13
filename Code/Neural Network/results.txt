@@ -1,0 +1,13 @@
+Dataset Not Scaled
+
+11298 / 12049 
+Accuracy: 93.8%
+
+11197 / 12049 
+Accuracy: 92.9%
+
+11242 / 12049 
+Accuracy: 93.3%
+
+
+
